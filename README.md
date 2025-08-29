@@ -1,6 +1,6 @@
 # Cpp-modules
-This repo suppose to be a collection of exercises for c++. I will constantly add my solitions this repo. 
-Those exercises are about the new programming paradigma OOP (Object Orientied pogramming).
+This repo is a collection of exercises for the cpp modules from 42 Berlin. I will regularly add my solutions to this repo. 
+These exercises focus on OOP basics (Object-Oriented Pogramming).
 
 ## Questions
-What are classes? What is conctructor and descructor? What is overloading? What is encapsulation?
+What are classes? What is a constructor and destructor? What is overloading? What is encapsulation?
