@@ -10,3 +10,4 @@ What is a default constructor?
 What is a copy constructor?
 What is the copy assignment operator?
 What is a destructor?
+What is a fixed-point and floating-point number?
