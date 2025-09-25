@@ -10,7 +10,6 @@ class   Zombie
         void    randomChump( std::string name );
         Zombie();
         void    setName( std::string name ) {_name = name;};
-        Zombie  *zombieHorde(int N, std::string name);
         Zombie(std::string);
         ~Zombie();
     private:

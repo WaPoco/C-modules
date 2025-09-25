@@ -4,9 +4,10 @@
 class HumanB
 {
     public:
-        HumanB(std::string &name);
+        HumanB(const std::string &name);
         void    attack();
+        void setWeapon(Weapon &weapon);
     private:
-        Weapon _weaponB;
+        Weapon *_weaponB;
         std::string _name;
 };
