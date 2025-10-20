@@ -1,7 +1,7 @@
 NAME=myPhoneBook
 CC=c++ -Wall -Wextra -Werror -std=c++98
-SRC=MyAwesomePhoneBook.cpp
-OBJ=MyAwesomePhoneBook.o
+SRC=PhoneBook.cpp main.cpp
+OBJ=PhoneBook.o main.o
 
 all: $(NAME)
 
