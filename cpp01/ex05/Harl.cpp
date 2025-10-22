@@ -19,7 +19,7 @@ void Harls::complain(std::string level)
     switch (k)
     {
         case 0:
-            (Harls::*f[0])();
+            (this->*f[0])();
             break;
         case 1:
             (this->*f[1])();
