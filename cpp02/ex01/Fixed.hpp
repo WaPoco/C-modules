@@ -18,3 +18,5 @@ class Fixed
         float toFloat( void ) const;
         ~Fixed();
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& a);

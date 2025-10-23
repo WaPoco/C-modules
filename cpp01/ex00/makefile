@@ -1,21 +1,21 @@
 NAME=Zombie
-CC=c++ -Wall -Wextra -Werror -std=c++98
-SRC=Zombie.cpp main.cpp
-OBJ=Zombie.o main.o
+CCXX=c++ -Wall -Wextra -Werror -std=c++98
+SRC=Zombie.cpp main.cpp newZombie.cpp randomChump.cpp 
+OBJ=Zombie.o main.o newZombie.o randomChump.o
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+	$(CCXX) $(OBJ) -o $(NAME)
 
-%.o: %.c
-	 $(CC) -c $< -o $@
+%.o: %.cpp
+	 $(CCXX) -c $< -o $@
  
 clean:
-	rm $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-	rm $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 

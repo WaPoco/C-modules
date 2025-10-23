@@ -27,7 +27,6 @@ class Fixed
         Fixed operator*(const Fixed& other) const;
         Fixed operator/(const Fixed& other) const;
         // increment/decrement
-        // Fixed operator++(const Fixed& numb);
         Fixed operator++(int);
         Fixed& operator++();
         Fixed operator--(int);

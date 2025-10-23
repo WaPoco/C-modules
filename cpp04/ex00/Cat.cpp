@@ -24,3 +24,4 @@ void Cat::makesound()
 {
     std::cout << "Miaou" << std::endl;
 }
+

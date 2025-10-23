@@ -1,21 +1,21 @@
 NAME=megaphone
-CC=c++ -Wall -Wextra -Werror -std=c++98
+CCXX=c++ -Wall -Wextra -Werror -std=c++98
 SRC=megaphone.cpp
 OBJ=megaphone.o
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+	$(CCXX) $(OBJ) -o $(NAME)
 
-%.o: %.c
-	 $(CC) -c $< -o $@
+%.o: %.cpp
+	 $(CCXX) -c $< -o $@
  
 clean:
-	rm $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-	rm $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 

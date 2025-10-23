@@ -1,5 +1,6 @@
-#pragma once
-#include "Weapon.hpp"
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
+# include "Weapon.hpp"
 
 class HumanA
 {
@@ -7,6 +8,8 @@ class HumanA
         Weapon& _weaponA;
         std::string _name;
     public:
-        HumanA(const std::string &name, Weapon &weapon);
-        void    attack();
+        HumanA(const std::string& name, Weapon& weapon);
+        void    attack() const;
 };
+
+#endif

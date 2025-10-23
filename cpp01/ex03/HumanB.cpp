@@ -1,8 +1,8 @@
 #include "HumanB.hpp"
 
-HumanB::HumanB(const std::string &name) : _name(name) ,_weaponB(NULL) {}
+HumanB::HumanB(const std::string &name) : _weaponB(NULL), _name(name) {}
 
-void    HumanB::attack()
+void    HumanB::attack() const
 {
     if (_weaponB)
         std::cout << _name << " attacks with their " << (*_weaponB).getType() << std::endl;

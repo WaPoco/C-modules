@@ -2,13 +2,15 @@
 
 int main()
 {
-    Zombie helper;
-    Zombie *first;
-    Zombie *sec;
-    sec = helper.newZombie("B");
-    helper.randomChump("FOO");
-    first = zombieHorde(3, "Zombie");
-    delete[] first;
-    delete sec;
+    Zombie *horde;
+    Zombie *nZombie;
+    nZombie = newZombie("new Zombie");
+    nZombie->announce();
+    randomChump("random FOO");
+    horde = zombieHorde(3, "Zombiehord dude");
+    for (int i = 0; i < 3; i++)
+        horde[i].announce();
+    delete[] horde;
+    delete nZombie;
     return (0);
 }

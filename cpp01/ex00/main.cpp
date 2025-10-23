@@ -3,7 +3,10 @@
 int main()
 {
     Zombie A ("Peter");
-    A.newZombie("B");
-    A.randomChump("FOO");
+    A.announce();
+    Zombie *B = newZombie("new Pete" );
+    B->announce();
+    randomChump("Random FOO");
+    delete B;
     return (0);
 }

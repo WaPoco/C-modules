@@ -41,7 +41,13 @@ Fixed::Fixed(const int number)
 
 Fixed::Fixed(const float number)
 {
-    _value = roundf(number / (1 << _fractional_bits));   
+    _value = roundf(number * (1 << _fractional_bits));   
+}
+
+std::ostream &operator<<(std::ostream &os, const Fixed& a)
+{
+    os << a.toFloat();
+    return (os);
 }
 
 int Fixed::toInt(void) const
@@ -51,5 +57,5 @@ int Fixed::toInt(void) const
 
 float Fixed::toFloat(void) const
 {
-    return (_value * (1 << _fractional_bits));
+    return ((float)_value / (1 << _fractional_bits));
 }
