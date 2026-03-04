@@ -14,6 +14,8 @@ class Bureaucrat
         void decrementGrade();
     private:
         const std::string name;
-        int grade;
+        int _grade;
 };
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
+
 #endif
