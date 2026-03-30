@@ -1,9 +1,9 @@
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
-
+#include "Form.hpp"
 #include <string>
 
-class Bureaucrat
+class Bureaucrat : public Form
 {
     public:
         Bureaucrat(const std::string& name, int grade);
@@ -12,6 +12,7 @@ class Bureaucrat
         int getGrade() const;
         void incrementGrade();
         void decrementGrade();
+        void signForm();
     private:
         const std::string name;
         int _grade;
