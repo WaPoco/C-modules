@@ -49,6 +49,6 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
 
 void Bureaucrat::signForm()
 {
-    if (Form::beSigned(Bureaucrat::getGrade()))
+    Form::beSigned(*this);
     std::cout << name << " signs form." << std::endl;
 }
