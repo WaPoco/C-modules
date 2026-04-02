@@ -17,11 +17,6 @@ Form::~Form()
 {
 }
 
-int Form::get_gradeToSign() const
-{
-    return _gradeToSign;
-}
-
 std::string Form::get_name() const
 {
     return _name; 
@@ -66,6 +61,8 @@ void Form::beSigned(Bureaucrat &b)
 {
     if (b.getGrade() >= get_gradeToSign())
         set_isSigned(true);
+    else
+        std::cout << b.getName() << " signed" << get_name() << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& f)

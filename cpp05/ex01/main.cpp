@@ -6,8 +6,8 @@ int main()
 {
     try
     {
-        Form f("Peter", 100, 60);
-        std::cout << f;
+        Bureaucrat b("Adolf", 100);
+        b.signForm();
     }
     catch(std::exception &e)
     {

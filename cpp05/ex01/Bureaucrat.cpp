@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include "GradeTooLowException.hpp"
 #include "GradeTooHighException.hpp"
 
@@ -49,6 +50,7 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
 
 void Bureaucrat::signForm()
 {
-    Form::beSigned(*this);
-    std::cout << name << " signs form." << std::endl;
+    Form f("AB 23", 23, 1);
+    f.beSigned(*this);
+    std::cout << name << " signed" << f.get_name() << std::endl;
 }

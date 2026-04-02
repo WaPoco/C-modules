@@ -2,7 +2,7 @@
 # define BUREAUCRAT_HPP
 # include <string>
 
-class Bureaucrat : public Form
+class Bureaucrat
 {
     public:
         Bureaucrat(const std::string& name, int grade);
