@@ -7,6 +7,7 @@ int main()
     try
     {
         Bureaucrat b("Adolf", 100);
+        std::cout << b;
         b.signForm();
     }
     catch(std::exception &e)

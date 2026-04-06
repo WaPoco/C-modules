@@ -50,7 +50,7 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
 
 void Bureaucrat::signForm()
 {
-    Form f("AB 23", 23, 1);
+    Form f("AB 23", -1, 1);
     f.beSigned(*this);
-    std::cout << name << " signed" << f.get_name() << std::endl;
+    std::cout << name << " signed " << f.get_name() << std::endl;
 }
