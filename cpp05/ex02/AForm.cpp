@@ -66,7 +66,7 @@ void AForm::beSigned(Bureaucrat &b)
         std::cout << b.getName() << " signed" << get_name() << std::endl;
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& f)
+std::ostream& operator<<(std::ostream& os, const AForm& f)
 {
     os << f.get_name() << ", form grade to sign " << f.get_gradeToSign() << ", form grade to execute " << f.get_gradeToExecute() << std::endl;
     return (os);
@@ -74,5 +74,5 @@ std::ostream& operator<<(std::ostream& os, const Form& f)
 
 void AForm::execute(Bureaucrat const &executor) const
 {
-
+    
 }

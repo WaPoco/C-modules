@@ -29,8 +29,9 @@ class AForm
         void set_gradeToExecute(const int& gradeToExecute);
         void beSigned(Bureaucrat& b);
         virtual void execute(Bureaucrat const & executor) const;
+        
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& f);
+std::ostream& operator<<(std::ostream& os, const AForm& f);
 
 #endif

@@ -7,7 +7,7 @@ class ShrubberyCreationForm: public AForm
 {
     ShrubberyCreationForm();
     ShrubberyCreationForm(AForm& form);
-    void execute() const;
+    void execute(Bureaucrat const & executor) const;
     ~ShrubberyCreationForm();
 };
 
