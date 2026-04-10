@@ -1,4 +1,3 @@
-#include "Form.hpp"
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
@@ -9,9 +8,9 @@ AForm::AForm()
 AForm::AForm(std::string name, int gradeToSign, int gradeToExecute): _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
     if (_gradeToExecute < 1 || _gradeToSign < 1)
-        throw GradeTooHighException();
+        throw Bureaucrat::GradeTooHighException();
     if (_gradeToExecute > 150 || _gradeToSign > 150)
-        throw GradeTooLowException();
+        throw Bureaucrat::GradeTooLowException();
 }
 
 AForm::~AForm()
@@ -60,10 +59,10 @@ void AForm::set_gradeToExecute(const int &gradeToExecute)
 
 void AForm::beSigned(Bureaucrat &b)
 {
-    if (b.getGrade() >= get_gradeToSign())
+    if (b.getGrade() <= get_gradeToSign())
         set_isSigned(true);
     else
-        std::cout << b.getName() << " signed" << get_name() << std::endl;
+    throw Bureaucrat::GradeTooLowException();
 }
 
 std::ostream& operator<<(std::ostream& os, const AForm& f)
@@ -74,5 +73,15 @@ std::ostream& operator<<(std::ostream& os, const AForm& f)
 
 void AForm::execute(Bureaucrat const &executor) const
 {
-    
+    try
+    {
+        if (get_isSigned() == false)
+            throw Bureaucrat::FormNotSignedException();
+        if (executor.getGrade() > get_gradeToExecute())
+            throw Bureaucrat::GradeTooLowException();
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "Error: " << e.what() << std::endl;
+    }
 }

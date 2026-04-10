@@ -1,8 +1,7 @@
 #ifndef AFORM_HPP
 # define AFORM_HPP
 # include <iostream>
-# include "GradeTooHighException.hpp"
-# include "GradeTooLowException.hpp"
+# include <exception>
 
 class Bureaucrat;
 
@@ -29,7 +28,6 @@ class AForm
         void set_gradeToExecute(const int& gradeToExecute);
         void beSigned(Bureaucrat& b);
         virtual void execute(Bureaucrat const & executor) const;
-        
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& f);

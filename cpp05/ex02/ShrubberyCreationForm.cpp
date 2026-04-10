@@ -1,7 +1,5 @@
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
-#include "GradeTooLowException.hpp"
-#include "FormNotSignedException.hpp"
 #include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm()
@@ -15,8 +13,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target):AForm("Shrubber
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-    AForm::execute();
-    std::ofstream ofs(get_name() + "_shrubbery");
+    AForm::execute(executor);
+    std::ofstream ofs((_target + "_shrubbery").c_str());
     if (!ofs)
     {
         std::cerr << "Error creating file" << std::endl;

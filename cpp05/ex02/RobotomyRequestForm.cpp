@@ -1,7 +1,6 @@
 #include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
-#include "GradeTooLowException.hpp"
-#include "FormNotSignedException.hpp"
+#include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm()
 {
@@ -15,14 +14,14 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target):AForm("RobotomyRequ
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-    AForm::execute();
+    AForm::execute(executor);
     std::cout << "BZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ... " << std::endl;
     if (rand() % 2)
-        std::cout << executor.getName() << " has been robotomized successfully." << std::endl;
+        std::cout << _target << " has been robotomized successfully." << std::endl;
     else
-        std::cout << executor.getName() << " has been robotomized unsuccessfully." << std::endl;
+        std::cout << _target << " has been robotomized unsuccessfully." << std::endl;
 }
 
-RobotomyRequestForm::~RobotomyRequestForm()
+RobotomyRequestForm::~RobotomyRequestForm() 
 {
 }

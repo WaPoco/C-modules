@@ -14,8 +14,32 @@ class Bureaucrat
         int getGrade() const;
         void incrementGrade();
         void decrementGrade();
-        void signForm();
+        void signForm(AForm& form);
         void executeForm(AForm const & form);
+        class GradeTooHighException : public std::exception
+        {
+            public:
+                virtual const char* what() const throw()
+                {
+                    return "Bureaucrat::GradeTooHighException: Grade is too high!";
+                }
+        };
+        class GradeTooLowException : public std::exception
+        {
+            public:
+                virtual const char* what() const throw()
+                {
+                    return "Bureaucrat::GradeTooLowException: Grade is too low!";
+                }
+        };
+        class FormNotSignedException : public std::exception
+        {
+            public:
+                virtual const char* what() const throw()
+                {
+                    return "FormNotSignedException: Form is not signed!";
+                }
+        };
     private:
         const std::string name;
         int _grade;
