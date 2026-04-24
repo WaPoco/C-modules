@@ -10,10 +10,10 @@ class ScalarConverter
         ScalarConverter();
         ~ScalarConverter();
         static void convert(std::string str);
-        bool isInt(std::string &s);
-        void isChar(std::String &s);
-        void isDouble();
-        void isFloat();
+        static bool isInt(std::string &s);
+        static void isChar(std::string &s);
+        static void isDouble(std::string &s);
+        static void isFloat(std::string &s);
 };
 
 #endif
