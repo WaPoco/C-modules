@@ -1,7 +1,7 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
-AForm::AForm()
+AForm::AForm():_name(""), _gradeToSign(0), _gradeToExecute(0)
 {
 }
 
@@ -37,24 +37,9 @@ int AForm::get_gradeToExecute() const
     return _gradeToExecute;
 }
 
-void AForm::set_name(std::string& name)
-{
-    _name = name;
-}
-
-void AForm::set_gradeToSign(const int &gradeToSign)
-{
-    _gradeToSign = gradeToSign;
-}
-
 void AForm::set_isSigned(const int &isSigned)
 {
     _isSigned = isSigned;
-}
-
-void AForm::set_gradeToExecute(const int &gradeToExecute)
-{
-    _gradeToExecute = gradeToExecute;
 }
 
 void AForm::beSigned(Bureaucrat &b)
@@ -62,12 +47,15 @@ void AForm::beSigned(Bureaucrat &b)
     if (b.getGrade() <= get_gradeToSign())
         set_isSigned(true);
     else
-    throw Bureaucrat::GradeTooLowException();
+        throw Bureaucrat::GradeTooLowException();
 }
 
 std::ostream& operator<<(std::ostream& os, const AForm& f)
 {
-    os << f.get_name() << ", form grade to sign " << f.get_gradeToSign() << ", form grade to execute " << f.get_gradeToExecute() << std::endl;
+    os << "Form: " << f.get_name() << std::endl;
+    os << "Signed: " << f.get_isSigned() << std::endl;
+    os << "Grade required to sign: " << f.get_gradeToSign() << std::endl;
+    os << "Grade required to execute: " << f.get_gradeToExecute() << std::endl;
     return (os);
 }
 
