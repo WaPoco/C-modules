@@ -13,3 +13,7 @@ class Intern
         AForm* makeForm(const std::string &name, const std::string &target);
         ~Intern();
     };
+
+AForm* createShrubbery(const std::string& target);
+AForm* createRobotomy(const std::string& target);
+AForm* createPardon(const std::string& target);
