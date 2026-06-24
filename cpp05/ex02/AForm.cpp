@@ -13,6 +13,17 @@ AForm::AForm(std::string name, int gradeToSign, int gradeToExecute): _name(name)
         throw Bureaucrat::GradeTooLowException();
 }
 
+AForm::AForm(const AForm &other):_name(other._name), _isSigned(other._isSigned), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute)
+{
+}
+
+AForm &AForm::operator=(const AForm &other)
+{
+    if (this != &other)
+        _isSigned = other._isSigned;
+    return (*this);
+}
+
 AForm::~AForm()
 {
 }

@@ -3,12 +3,12 @@
 # include "AForm.hpp"
 # include <string>
 
-class AForm;
-
 class Bureaucrat
 {
     public:
         Bureaucrat(const std::string& name, int grade);
+        Bureaucrat(const Bureaucrat& other);
+        Bureaucrat& operator=(const Bureaucrat& other);
         ~Bureaucrat();
         const std::string& getName() const;
         int getGrade() const;
@@ -41,7 +41,8 @@ class Bureaucrat
                 }
         };
     private:
-        const std::string name;
+        Bureaucrat();
+        const std::string _name;
         int _grade;
 };
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);

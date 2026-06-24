@@ -73,3 +73,14 @@ void AForm::execute(Bureaucrat const &executor) const
         std::cout << "Error: " << e.what() << std::endl;
     }
 }
+
+AForm::AForm(const AForm &other):_name(other._name), _isSigned(other._isSigned), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute)
+{
+}
+
+AForm &AForm::operator=(const AForm &other)
+{
+    if (this != &other)
+        _isSigned = other._isSigned;
+    return (*this);
+}

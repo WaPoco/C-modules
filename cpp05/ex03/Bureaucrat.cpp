@@ -37,6 +37,19 @@ void Bureaucrat::incrementGrade()
         _grade--;
 }
 
+Bureaucrat::Bureaucrat(const Bureaucrat &other)
+{
+    if(this != &other)
+        _grade = other._grade;
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
+{
+    if (this != &other)
+        _grade = other._grade;
+    return *this;
+}
+
 void Bureaucrat::decrementGrade()
 {
     if (_grade + 1 > 150)
