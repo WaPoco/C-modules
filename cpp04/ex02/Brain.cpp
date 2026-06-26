@@ -26,7 +26,7 @@ void Brain::setIdea(int index, const std::string idea)
 
 std::string Brain::getIdea(int index)
 {
-    if (0 <= index && index <= sizeof(ideas) / sizeof(std::string))
+    if (0 <= index && index <= (int)(sizeof(ideas) / sizeof(std::string)))
         return ideas[index];
     return "";
 }

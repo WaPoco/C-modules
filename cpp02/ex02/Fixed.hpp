@@ -36,8 +36,8 @@ class Fixed
         static Fixed min(const Fixed &numb1, const Fixed &numb2);
         static Fixed max(Fixed &numb1, Fixed &numb2);
         static Fixed max(const Fixed &numb1, const Fixed &numb2);
-        int toInt( void ) const;
-        float toFloat( void ) const;
+        int toInt(void) const;
+        float toFloat(void) const;
         ~Fixed();
 };
 

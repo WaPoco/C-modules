@@ -2,36 +2,20 @@
 
 Harls::Harls()
 {
-
 }
 
 void Harls::complain(std::string level)
 {
-    int k = -1;
     std::string l[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-    void (Harls::*f[4])() = {&Harls::debug, &Harls::error, &Harls::info, &Harls::warning};
+    void (Harls::*f[4])() = {&Harls::debug, &Harls::info, &Harls::warning, &Harls::error};
 
     for(int j = 0; j < 4; j++)
     {
         if (l[j] == level)
-            k = j;
-    }
-    switch (k)
-    {
-        case 0:
-            (this->*f[0])();
-            break;
-        case 1:
-            (this->*f[1])();
-            break;
-        case 2:
-            (this->*f[2])();
-            break;
-        case 3:
-            (this->*f[3])();
-            break;
-        default:
-            break;
+        {
+            (this->*f[j])();
+            return ;
+        }
     }
 }
 
@@ -50,7 +34,7 @@ void     Harls::warning(void)
     std::cout << "I think I deserve to have some extra bacon for free. Ive been coming foryears, whereas you started working here just last month." << std::endl;
 }
 
-void     Harls::error( void )
+void     Harls::error(void)
 {
     std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }

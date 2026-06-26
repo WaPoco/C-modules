@@ -1,4 +1,6 @@
-#include <iostream>
+#ifndef CLAP_TRAP_HPP
+# define CLAP_TRAP_HPP
+# include <iostream>
 
 class ClapTrap
 {
@@ -10,7 +12,7 @@ class ClapTrap
     public:
         ClapTrap();
         ClapTrap(std::string name);
-        ClapTrap operator=(const ClapTrap& other);
+        ClapTrap& operator=(const ClapTrap& other);
         ClapTrap(const ClapTrap&);
         ~ClapTrap();
         // setter
@@ -20,3 +22,4 @@ class ClapTrap
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 };
+#endif

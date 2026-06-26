@@ -10,12 +10,12 @@ int main(void)
     FragTrap e("S");
 
     c.guardGate();
+    c.attack("S");
     e.attack("Bob");
     ScavTrap d (c);
     a.attack("Bob");
     b.takeDamage(5);
     b.beRepaired(3);
-    std::cout << sizeof(int *) << std::endl;
-    std::cout << sizeof(char) << std::endl;
+    e.attack("Bob");
     return (0);
 }

@@ -7,7 +7,7 @@ Fixed::Fixed() : _value(0)
 
 int Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits member function called" << std::endl;
+    //std::cout << "getRawBits member function called" << std::endl;
     return (_value);
 }
 
@@ -36,11 +36,13 @@ Fixed::Fixed(const Fixed& other)
 
 Fixed::Fixed(const int number)
 {
+    std::cout << "Int constructor called" << std::endl;
     _value = number << _fractional_bits;
 }
 
 Fixed::Fixed(const float number)
 {
+    std::cout << "Float constructor called" << std::endl;
     _value = roundf(number * (1 << _fractional_bits));   
 }
 

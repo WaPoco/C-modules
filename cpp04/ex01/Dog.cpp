@@ -22,7 +22,7 @@ Dog& Dog::operator=(const Dog &other)
     return *this;
 }
 
-Brain *Dog::getBrain()
+Brain *Dog::getBrain() const
 {
     return this->brain;
 }
