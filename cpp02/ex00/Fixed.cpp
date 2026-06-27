@@ -31,5 +31,5 @@ Fixed::~Fixed()
 Fixed::Fixed(const Fixed& other)
 {
     std::cout << "Copy constructor called" << std::endl;
-    _value = other.getRawBits();
+    this->_value = other.getRawBits();
 }

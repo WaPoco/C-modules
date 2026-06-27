@@ -1,8 +1,29 @@
-# ifndef SCALARCONVERTER_HPP
+#ifndef SCALARCONVERTER_HPP
 # define SCALARCONVERTER_HPP
-# include <string>
 
-class ScalarConverter
+# include <iostream>
+# include <iomanip>
+# include <exception>
+# include <cstdlib>
+# include <limits>
+# include <cmath>
+
+# define MIN_INT std::numeric_limits<int>::min() //-2147483648
+# define MAX_INT std::numeric_limits<int>::max() //2147483647
+# define MAX_FLOAT std::numeric_limits<float>::max() //3.40282e+38
+# define MAX_DOUBLE std::numeric_limits<double>::max() //1.79769e+308
+
+enum    e_type
+{
+    SPECIAL = 0,
+    CHAR = 1,
+    INT = 2,
+    FLOAT = 3,
+    DOUBLE = 4,
+    INVALID = -1
+};
+
+class	ScalarConverter
 {
     private:
         std::string input;
@@ -12,12 +33,14 @@ class ScalarConverter
         ScalarConverter &operator=(const ScalarConverter &other);
         ~ScalarConverter();
     public:
-        static void convert(std::string &str);
+        static void convert(std::string str);
 };
 
-static bool isInt(std::string &s);
-static void isChar(std::string &s);
-static void isDouble(std::string &s);
-static void isFloat(std::string &s);
+e_type	whichType(const std::string& str, size_t& len);
+void	printSpecial(const std::string& str);
+void	convertChar(const std::string& str, size_t& len);
+void	convertInt(const std::string& str);
+void	convertFloat(const std::string& str);
+void	convertDouble(const std::string& str);
 
 #endif

@@ -1,12 +1,12 @@
 #include "Dog.hpp"
 
-Dog::Dog(): Animal("Dog")
+Dog::Dog(): AAnimal("Dog")
 {
     this->brain = new Brain();
     std::cout << "Dog constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog &other) : Animal(other)
+Dog::Dog(const Dog &other) : AAnimal(other)
 {
     std::cout << "Dog copy assigment" << std::endl;
     this->brain = new Brain(*other.brain);
@@ -22,7 +22,7 @@ Dog& Dog::operator=(const Dog &other)
     return *this;
 }
 
-Brain *Dog::getBrain()
+Brain *Dog::getBrain() const
 {
     return this->brain;
 }
@@ -33,7 +33,7 @@ Dog::~Dog()
     delete this->brain;
 }
 
-void Dog::makesound()
+void Dog::makesound() const
 {
     std::cout << "Wuff" << std::endl;
 }

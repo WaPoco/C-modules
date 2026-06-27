@@ -2,14 +2,24 @@
 #include "Bureaucrat.hpp"
 #include <cstdlib>
 
-RobotomyRequestForm::RobotomyRequestForm()
+RobotomyRequestForm::RobotomyRequestForm():AForm("RobotomyRequestForm", 72, 45)
 {
-
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target):AForm("RobotomyRequestForm", 72, 45)
 {
     _target = target;
+}
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
+{
+	_target = other._target;
+	set_isSigned(other.get_isSigned());
+	return (*this);
+}
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other): AForm(other), _target(other._target)
+{
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
@@ -24,4 +34,9 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 
 RobotomyRequestForm::~RobotomyRequestForm() 
 {
+}
+
+std::string RobotomyRequestForm::get_target() const
+{
+    return _target; 
 }

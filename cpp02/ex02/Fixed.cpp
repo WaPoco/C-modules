@@ -118,6 +118,11 @@ Fixed Fixed::operator/(const Fixed &other) const
 {
     Fixed result;
 
+    if (other.getRawBits() == 0)
+    {
+        std::cerr << "Error division by 0" << std::endl;
+        exit(1);
+    }
     result._value = _value * (1 << _fractional_bits) / other._value;
     return (result);    
 }
@@ -136,6 +141,7 @@ Fixed &Fixed::operator++()
     return (*this);
 }
 
+// post-decrement
 Fixed Fixed::operator--(int)
 {
     Fixed tmp = *this;

@@ -2,13 +2,26 @@
 #include "Bureaucrat.hpp"
 #include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm()
+ShrubberyCreationForm::ShrubberyCreationForm():AForm("ShrubberyCreationForm", 145, 137)
 {
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target):AForm("ShrubberyCreationForm", 145, 137)
 {
     _target = target;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : AForm(other)
+{
+    if (this != &other)
+        *this = other;
+}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
+{
+	_target = other._target;
+	set_isSigned(other.get_isSigned());
+	return (*this);
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
@@ -35,4 +48,9 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 
+}
+
+std::string ShrubberyCreationForm::get_target() const
+{
+    return _target; 
 }

@@ -8,6 +8,7 @@ int main(void)
     ScavTrap c("Test");
 
     c.guardGate();
+    c.attack("Carls");
     ScavTrap d (c);
     a.attack("Bob");
     b.takeDamage(5);

@@ -3,13 +3,13 @@
 Cat::Cat(): Animal("Cat")
 {
     this->brain = new Brain();
-    std::cout << "Cat constructor called" << std::endl;
+    std::cout << _type << " default constructor called" << std::endl;
 }
 
 Cat::Cat(const Cat &other) : Animal(other)
 {
-    std::cout << "Cat copy assigment" << std::endl;
     this->brain = new Brain(*other.brain);
+    std::cout << _type << " constructor called" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat &other)
@@ -19,18 +19,19 @@ Cat& Cat::operator=(const Cat &other)
         delete this->brain;
         this->brain = new Brain(*other.brain);
     }
+    std::cout << _type << " copy constructor called" << std::endl;
     return *this;
 }
 
-Brain *Cat::getBrain()
+Brain *Cat::getBrain() const
 {
     return this->brain;
 }
 
 Cat::~Cat()
 {
-    std::cout << "Cat destructor called" << std::endl;
     delete this->brain;
+    std::cout << _type << " destructor called!" << std::endl;
 }
 
 void Cat::makesound()

@@ -1,9 +1,10 @@
-#pragma once 
-#include <iostream>
+#ifndef CLAP_TRAP_HPP
+# define CLAP_TRAP_HPP
+# include <iostream>
 
 class ClapTrap
 {
-    private:
+    protected:
         std::string _name;
         int _hit_points;
         int _energy_points;
@@ -11,14 +12,14 @@ class ClapTrap
     public:
         ClapTrap();
         ClapTrap(std::string name);
-        ClapTrap(std::string name, int hit_points, int energy_points, int attack_damage);
-        ClapTrap operator=(const ClapTrap& other);
+        ClapTrap& operator=(const ClapTrap& other);
         ClapTrap(const ClapTrap&);
         ~ClapTrap();
         // setter
         void set_hit_points(int hit_points);
         void set_energy_points(int energy_points);
-        void attack(const std::string& target);
+        virtual void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 };
+#endif

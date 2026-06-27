@@ -1,16 +1,27 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form()
+Form::Form():_name(""), _isSigned(false), _gradeToSign(0), _gradeToExecute(0)
 {
 }
 
 Form::Form(std::string name, int gradeToSign, int gradeToExecute): _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
     if (_gradeToExecute < 1 || _gradeToSign < 1)
-        throw GradeTooHighException();
+        throw Bureaucrat::GradeTooHighException();
     if (_gradeToExecute > 150 || _gradeToSign > 150)
-        throw GradeTooLowException();
+        throw Bureaucrat::GradeTooLowException();
+}
+
+Form::Form(const Form &other): _name(other._name), _isSigned(other._isSigned), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute)
+{
+}
+
+Form &Form::operator=(const Form &other)
+{
+    if (this != &other)
+        _isSigned = other._isSigned;
+    return (*this); 
 }
 
 Form::~Form()
@@ -37,36 +48,27 @@ int Form::get_gradeToExecute() const
     return _gradeToExecute;
 }
 
-void Form::set_name(std::string& name)
-{
-    _name = name;
-}
-
-void Form::set_gradeToSign(const int &gradeToSign)
-{
-    _gradeToSign = gradeToSign;
-}
-
 void Form::set_isSigned(const int &isSigned)
 {
     _isSigned = isSigned;
 }
 
-void Form::set_gradeToExecute(const int &gradeToExecute)
-{
-    _gradeToExecute = gradeToExecute;
-}
-
 void Form::beSigned(Bureaucrat &b)
 {
-    if (b.getGrade() >= get_gradeToSign())
+    if (b.getGrade() <= get_gradeToSign())
+    {
         set_isSigned(true);
+        std::cout << _name << " signed " << this->get_name() << std::endl;
+    }
     else
-        std::cout << b.getName() << " signed" << get_name() << std::endl;
+        throw Bureaucrat::GradeTooLowException();
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& f)
 {
-    os << f.get_name() << ", form grade to sign " << f.get_gradeToSign() << ", form grade to execute " << f.get_gradeToExecute() << std::endl;
+    os << "Form: " << f.get_name() << std::endl;
+    os << "Signed: " << f.get_isSigned() << std::endl;
+    os << "Grade required to sign: " << f.get_gradeToSign() << std::endl;
+    os << "Grade required to execute: " << f.get_gradeToExecute() << std::endl;
     return (os);
 }

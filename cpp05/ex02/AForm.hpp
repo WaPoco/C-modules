@@ -8,13 +8,15 @@ class Bureaucrat;
 class AForm
 {
     private:
+        AForm();
         const std::string _name;
         bool _isSigned;
         const int _gradeToSign;
         const int _gradeToExecute;
     public:
-        AForm();
         AForm(std::string name, int gradeToSign, int gradeToExecute);
+        AForm(const AForm &other);
+        AForm &operator=(const AForm& other);
         virtual ~AForm();
         std::string get_name() const;
         int get_gradeToSign() const;

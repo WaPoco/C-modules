@@ -2,12 +2,29 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
-Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), _grade(grade)
+Bureaucrat::Bureaucrat():_name("")
+{
+}
+
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade(grade)
 {
     if (_grade < 1)
         throw GradeTooHighException();
     else if (_grade > 150)
         throw GradeTooLowException();
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat &other)
+{
+    if(this != &other)
+        _grade = other._grade;
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
+{
+    if (this != &other)
+        _grade = other._grade;
+    return *this;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -16,7 +33,7 @@ Bureaucrat::~Bureaucrat()
 
 const std::string &Bureaucrat::getName() const
 {
-    return (name);
+    return (_name);
 }
 
 int Bureaucrat::getGrade() const
@@ -64,10 +81,10 @@ void Bureaucrat::executeForm(AForm const &form)
     try
     {
         form.execute(*this);
-        std::cout << name << " executed " << form.get_name() << std::endl;
+        std::cout << _name << " executed " << form.get_name() << std::endl;
     }
     catch (std::exception &e)
     {
-        std::cout << name << " couldn't execute " << form.get_name() << " because " << e.what() << std::endl;
+        std::cout << _name << " couldn't execute " << form.get_name() << " because " << e.what() << std::endl;
     }
 }

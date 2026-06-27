@@ -12,24 +12,26 @@ int main()
     Animal* dog  = new Dog();
     Animal* cat  = new Cat();
 
-    std::cout << dog->getType() << " says: "; dog->makesound();
-    std::cout << cat->getType() << " says: "; cat->makesound();
-    std::cout << meta->getType() << " says: "; meta->makesound();
+    std::cout << dog->getType() << " says: ";
+    dog->makesound();
+    std::cout << cat->getType() << " says: ";
+    cat->makesound();
+    std::cout << meta->getType() << " says: ";
+    meta->makesound();
 
     delete meta;
-    delete dog;   // checks virtual destructor correctness
+    delete dog;
     delete cat;
 
     std::cout << "\n=== Wrong polymorphism section ===\n";
     WrongAnimal* wmeta = new WrongAnimal();
     WrongAnimal* wcat  = new WrongCat();
 
-    std::cout << wmeta->getType() << " says: "; wmeta->makesound();
-    std::cout << wcat->getType() << " says: ";  wcat->makesound(); 
-    // This line calls WrongAnimal::makeSound() due to lack of virtual
-
+    std::cout << wmeta->getType() << " says: ";
+    wmeta->makesound();
+    std::cout << wcat->getType() << " says: ";
+    wcat->makesound(); 
     delete wmeta;
     delete wcat;
-
     return 0;
 }

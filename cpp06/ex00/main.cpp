@@ -1,12 +1,16 @@
 #include "ScalarConverter.hpp"
-#include "exception"
-#include "iostream"
-#include <cstdlib>
-#include <cerrno>
+#include <iostream>
+#include <limits>
 
-int main(int arg, char **args)
+int main(int argc, char **argv)
 {
-    std::string s = args[1];
-    ScalarConverter::convert(s);
-    return (1);
+	if (argc != 2)
+	{
+		std::cout << "Please enter a char/ int/ float/ double value\n";
+		return (0);
+	}
+	ScalarConverter::convert(argv[1]);
+	return (0);
 }
+
+
