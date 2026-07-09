@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <iostream>
+#include <exception>
 #include <vector>
-
 
 class Span
 {
@@ -14,7 +14,8 @@ class Span
         Span(const Span &other);
         ~Span();
         Span& operator=(const Span &other);
-        void addNummber(int number);
+        void addNumber(int number);
         int shortestSpan();
-        int longstSpan();
+        int longestSpan();
+        void addMultipleNumbers(std::vector<int> numbers);
 };
