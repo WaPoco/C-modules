@@ -1,3 +1,5 @@
+#include <algorithm>
+#include <stdexcept>
 
 template <class T>
 typename T::iterator easyfind(T &container, int value)
