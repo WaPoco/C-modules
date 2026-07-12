@@ -1,14 +1,5 @@
 #include "Span.hpp"
 
-template <class T>
-typename T::iterator easyfind(T &container, int value)
-{
-    typename T::iterator it = std::find(container.begin(), container.end(), value);
-    if (it == container.end())
-        throw std::runtime_error("Value not found in container");
-    return it;
-};
-
 Span::Span():_N(0)
 {
 }
@@ -65,19 +56,4 @@ int Span::longestSpan()
     std::sort(sort_span.begin(), sort_span.end());
     int longest = -sort_span.front() + sort_span.back();
     return longest;
-}
-
-void Span::addMultipleNumbers(std::vector<int> numbers)
-{
-    int last;
-
-    last = -1;
-    if (span.size() + numbers.size() < _N)
-    {
-        span.insert(span.end(), numbers.begin(), numbers.end());
-        return ;
-    }
-    last = _N - span.size();
-    if (last > 0)
-        span.insert(span.end(), numbers.begin(), easyfind(numbers, numbers[last - 1]));
 }

@@ -17,5 +17,19 @@ class Span
         void addNumber(int number);
         int shortestSpan();
         int longestSpan();
-        void addMultipleNumbers(std::vector<int> numbers);
+        template<typename Iterator>
+        void addMultipleNumbers(Iterator start, Iterator end);
 };
+
+template<typename Iterator>
+void Span::addMultipleNumbers(Iterator begin, Iterator end)
+{
+    int distance;
+
+    distance = std::distance(begin, end);
+    if (span.size() + distance <= _N)
+    {
+        span.insert(span.end(), begin, end);
+        return ;
+    }
+}
