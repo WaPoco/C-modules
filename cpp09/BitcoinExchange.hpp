@@ -4,6 +4,8 @@
 #include<string>
 #include<fstream>
 #include<iostream>
+#include <sstream>
+
 
 class BitcoinExchange
 {
@@ -12,8 +14,9 @@ class BitcoinExchange
     public:
         BitcoinExchange(const BitcoinExchange &other);
         BitcoinExchange &operator=(const BitcoinExchange &other);
-        validateDateRate(std::string date, std:string rate);
+        bool validateDate(std::string date);
         ~BitcoinExchange();
         BitcoinExchange();
-        void ReadData();
+        void ReadData(std::string filename);
+        void LoadData();
 };
