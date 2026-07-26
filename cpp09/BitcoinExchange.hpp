@@ -8,11 +8,12 @@
 class BitcoinExchange
 {
     private:
-        BitcoinExchange();
-        BitcoinExchange(const BitcoinExchange &other);
-        BitcoinExchange &operator=(const BitcoinExchange &other);
-        ~BitcoinExchange();
         std::map<std::string, double> database;
     public:
+        BitcoinExchange(const BitcoinExchange &other);
+        BitcoinExchange &operator=(const BitcoinExchange &other);
+        validateDateRate(std::string date, std:string rate);
+        ~BitcoinExchange();
+        BitcoinExchange();
         void ReadData();
 };
