@@ -142,8 +142,7 @@ void BitcoinExchange::ReadData(std::string filename)
             continue;
         }
 
-        std::map<std::string, double>::iterator it =
-            database.lower_bound(date);
+        std::map<std::string, double>::iterator it = database.lower_bound(date);
 
         if (it == database.end())
         {
@@ -153,8 +152,7 @@ void BitcoinExchange::ReadData(std::string filename)
         {
             if (it == database.begin())
             {
-                std::cout << "Error: no exchange rate available."
-                          << std::endl;
+                std::cout << "Error: no exchange rate available." << std::endl;
                 continue;
             }
             --it;
