@@ -9,10 +9,11 @@ int main(int argv, char **args)
     (void)args;
     if (argv <= 1)
     {
-        fprintf(stderr, "Error:Couldn't open file.");
+        fprintf(stderr, "Error: Couldn't open file.");
         return (0);
     }
     BitcoinExchange exchange;
-    exchange.ReadData();
+    exchange.LoadData();
+    exchange.ReadData(args[1]);
     return (0);
 }
