@@ -5,7 +5,12 @@ int main()
     {
         Span sp = Span(100);
         std::vector<int> v;
-        v = {1, 1, 30, 4, 55, 56};
+        v.push_back(1);
+        v.push_back(1);
+        v.push_back(30);
+        v.push_back(4);
+        v.push_back(55);
+        v.push_back(56);
         sp.addNumber(1);
         sp.addNumber(1);
         sp.addNumber(3);
@@ -15,5 +20,5 @@ int main()
         std::cout << sp.shortestSpan() << std::endl;
         std::cout << sp.longestSpan() << std::endl;
     }
-    return (1);
+    return (0);
 }

@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <iostream>
 #include <exception>
+#include <stdexcept>
 #include <vector>
 
 class Span
@@ -24,12 +25,10 @@ class Span
 template<typename Iterator>
 void Span::addMultipleNumbers(Iterator begin, Iterator end)
 {
-    int distance;
+    typename std::iterator_traits<Iterator>::difference_type distance;
 
     distance = std::distance(begin, end);
-    if (span.size() + distance <= _N)
-    {
-        span.insert(span.end(), begin, end);
-        return ;
-    }
+    if (distance < 0 || static_cast<std::vector<int>::size_type>(distance) > _N - span.size())
+        throw std::out_of_range("Span is full");
+    span.insert(span.end(), begin, end);
 }

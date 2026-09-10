@@ -8,9 +8,8 @@ Span::Span(unsigned int N):_N(N)
 {
 }
 
-Span::Span(const Span &other)
+Span::Span(const Span &other):_N(other._N), span(other.span)
 {
-
 }
 
 Span::~Span()
@@ -20,14 +19,19 @@ Span::~Span()
 
 Span &Span::operator=(const Span &other)
 {
+    if (this != &other)
+    {
+        _N = other._N;
+        span = other.span;
+    }
     return *this;
 }
 
 void Span::addNumber(int number)
 {
-    if (span.size() - 1 == _N)
+    if (span.size() >= _N)
         throw std::out_of_range("Span is full");
-    span.push_back(number);    
+    span.push_back(number);
 }
 
 int Span::shortestSpan()
@@ -40,7 +44,7 @@ int Span::shortestSpan()
     std::vector<int> sort_span = span;
     std::sort(sort_span.begin(), sort_span.end());
     shortest = sort_span[1] - sort_span[0];
-    for (int i = 1; i < sort_span.size() - 1; i++)
+    for (std::vector<int>::size_type i = 1; i < sort_span.size() - 1; i++)
     {
         if (sort_span[i + 1] - sort_span[i] < shortest)
             shortest = sort_span[i + 1] - sort_span[i];
