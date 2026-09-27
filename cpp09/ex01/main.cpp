@@ -1,17 +1,25 @@
-#include "RNP.hpp"
+#include "RPN.hpp"
+#include <iostream>
+#include <string>
 
-int main(int argc, char **args)
+int main(int argc, char **argv)
 {
-    std::stack<int> numbers;
-    std::stack<char> operation;
-    int len;
+    if (argc != 2)
+    {
+        std::cerr << "Error" << std::endl;
+        return 1;
+    }
 
-    // create two stacks one with numbers and one with operations
-    len = sizeof(args[1]) / sizeof(char);
-    std::string str(args[1], len);
-    read_input(str, numbers, operation);
-    std::cout << "number 1: " << numbers.top() << std::endl;
-    std::cout << operation.top() << std::endl;
-    std::cout << "number 2: " << numbers.top() << std::endl;
-    return 1;
+    try
+    {
+        RPN rpn;
+        rpn.calculate(argv[1]);
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+        return 1;
+    }
+
+    return 0;
 }
