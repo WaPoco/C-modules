@@ -197,7 +197,6 @@ void PmergeMe::sortVectorRecursive(std::vector<int> &v)
 					binaryInsert(main, pending[i], main.size());
 					inserted[i] = true;
 				}
-
 				--i;
 			}
 		}

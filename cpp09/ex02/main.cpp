@@ -25,7 +25,7 @@ static int parseInt(const char *str)
 	return static_cast<int>(value);
 }
 
-static bool contains(const std::vector<int> &v, int value)
+/*static bool contains(const std::vector<int> &v, int value)
 {
 	for (size_t i = 0; i < v.size(); ++i)
 	{
@@ -34,7 +34,7 @@ static bool contains(const std::vector<int> &v, int value)
 	}
 
 	return false;
-}
+}*/
 
 static void printVector(const std::vector<int> &v)
 {
@@ -77,10 +77,6 @@ int main(int argc, char **argv)
 		for (int i = 1; i < argc; ++i)
 		{
 			int value = parseInt(argv[i]);
-
-			if (contains(vectorInput, value))
-				throw std::runtime_error("Error");
-
 			vectorInput.push_back(value);
 		}
 
